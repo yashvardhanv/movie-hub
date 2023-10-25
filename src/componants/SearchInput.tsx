@@ -1,6 +1,7 @@
-import { Input, InputGroup, InputLeftElement, useDisclosure } from '@chakra-ui/react'
+import { Input, InputGroup, InputLeftElement, InputRightAddon, useDisclosure } from '@chakra-ui/react'
 import { useRef } from 'react'
 import { BiSearch } from 'react-icons/bi'
+import { MdClear } from 'react-icons/md'
 import useSearch from '../hooks/useSearch'
 
 
@@ -26,8 +27,8 @@ const SearchInput = ({ onSearch , searchText}: Props) => {
             onSubmit={(event)=>{
                 event.preventDefault()
                 if(ref.current) {
-                    ref.current.value=''
                     onSearch(ref.current.value)
+                    ref.current.value=''
                 }
 
             }}
@@ -35,6 +36,8 @@ const SearchInput = ({ onSearch , searchText}: Props) => {
                 <InputGroup>
                     <InputLeftElement children={<BiSearch />} />
                     <Input ref={ref} borderRadius={20} placeholder='Search for Movies and hit Enter to clear' variant={'filled'} />
+                   
+                    {/* <InputRightAddon borderRightRadius={20} children={<MdClear/>}  /> */}
                 </InputGroup>
 
             </form>
