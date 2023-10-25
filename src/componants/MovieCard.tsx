@@ -1,18 +1,33 @@
 import { Movies } from '../hooks/useMovies'
-import { Button, Card, CardBody, HStack, Heading, Image, Link, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, useDisclosure } from '@chakra-ui/react'
+import { Button, Card, CardBody, HStack, Heading, Image, Link, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, useDisclosure, useToast } from '@chakra-ui/react'
 import Ratings from './Ratings'
 import noimage from '../assets/No-image-found.jpg'
+import {MdArrowDownward} from 'react-icons/md' 
 interface Props {
   movie: Movies
 }
 
+
 const prefix = "https://image.tmdb.org/t/p/w500"
 const MovieCard = ({ movie }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const toast = useToast()
 
   return (
     <>
-      <Card borderRadius={20} overflow='hidden' onClick={onOpen}>
+      <Card borderRadius={20} overflow='hidden' onClick={()=>{
+        onOpen()
+        toast({
+          title: 'Scroll more here.',
+          description: "There is more content to see.",
+          status: 'success',
+          duration: 4000,
+          isClosable: true,
+          icon: <MdArrowDownward fontSize={'50'} />
+          
+ 
+        })
+        }}>
         <Image src={movie.poster_path ? prefix + movie.poster_path : noimage} />
         <CardBody >
 
@@ -38,6 +53,7 @@ const MovieCard = ({ movie }: Props) => {
             <Link target='_blank' href={'https://vidsrc.to/embed/movie/'+movie.id}> <Button colorScheme='teal' variant='solid'>
               Watch for free
             </Button></Link>
+            
           </ModalBody>
 
           <ModalFooter>

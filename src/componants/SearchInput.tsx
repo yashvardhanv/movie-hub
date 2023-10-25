@@ -27,13 +27,14 @@ const SearchInput = ({ onSearch , searchText}: Props) => {
                 event.preventDefault()
                 if(ref.current) {
                     ref.current.value=''
+                    onSearch(ref.current.value)
                 }
 
             }}
             >
                 <InputGroup>
                     <InputLeftElement children={<BiSearch />} />
-                    <Input ref={ref} borderRadius={20} placeholder='Search Movies...' variant={'filled'} />
+                    <Input ref={ref} borderRadius={20} placeholder='Search for Movies and hit Enter to clear' variant={'filled'} />
                 </InputGroup>
 
             </form>
