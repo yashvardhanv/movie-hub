@@ -8,7 +8,7 @@ interface Props {
 }
 
 
-const prefix = "https://image.tmdb.org/t/p/w500"
+const prefix = "https://image.tmdb.org/t/p/w300"
 const MovieCard = ({ movie }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const toast = useToast()
@@ -21,7 +21,7 @@ const MovieCard = ({ movie }: Props) => {
           title: 'Scroll more here.',
           description: "There is more content to see.",
           status: 'success',
-          duration: 4000,
+          duration: 2000,
           isClosable: true,
           icon: <MdArrowDownward fontSize={'50'} />
           

@@ -35,7 +35,7 @@ const SearchInput = ({ onSearch , searchText}: Props) => {
             >
                 <InputGroup>
                     <InputLeftElement children={<BiSearch />} />
-                    <Input ref={ref} borderRadius={20} placeholder='Search for Movies and hit Enter to clear' variant={'filled'} />
+                    <Input ref={ref} borderRadius={20} placeholder='Search for Movies...' variant={'filled'} />
                    
                     {/* <InputRightAddon borderRightRadius={20} children={<MdClear/>}  /> */}
                 </InputGroup>
