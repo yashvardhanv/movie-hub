@@ -29,7 +29,7 @@ const useMovies = (selectedGenre: Genre | null, selectedFilter: Item | null, pag
     const vc = 300
 
     setloading(true)
-    apiClient.get<MovieArray>('/discover/movie',{signal: controller.signal, params:{with_genres:selectedGenre?.id, sort_by: selectedFilter?.value, "vote_count.gte":vc, "page":page,"with_keywords":"godfather"}})
+    apiClient.get<MovieArray>('/discover/movie',{signal: controller.signal, params:{with_genres:selectedGenre?.id, sort_by: selectedFilter?.value, "vote_count.gte":vc, "page":page}})
       .then(res => {
         setMovies(res.data.results)
         window.scrollTo(0, 0)
